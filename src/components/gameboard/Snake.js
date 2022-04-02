@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import SnakePart from './SnakePart';
 
-export default function Snake() {
+export default function Snake({ onMove }) {
   const size = 21;
   const speed = 10;
   let dir = 'up';
@@ -45,6 +45,11 @@ export default function Snake() {
   useEffect(() => {
     checkIfOnBoard();
   }, [snakeParts[0].x, snakeParts[0].y]);
+
+  // Lift up the snake position
+  useEffect(() => {
+    onMove(snakeParts);
+  }, [snakeParts]);
 
   function move() {
     setSnakeParts((prevSnakeParts) => {
