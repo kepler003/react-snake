@@ -7,9 +7,16 @@ export default function Gameboard() {
   const [snakeParts, setSnakeParts] = useState(null);
   const [food, setFood] = useState(null);
 
-  // Place the food
+  // Placing the food
   useEffect(() => {
-    if (!snakeParts || food) return;
+    if (food || !snakeParts) return;
+    placeFood();
+  }, [snakeParts]);
+
+  // Eating food
+  useEffect(() => {
+    if (!food || !snakeParts) return;
+    if (!checkIfAteFood()) return;
     placeFood();
   }, [snakeParts]);
 
@@ -34,6 +41,11 @@ export default function Gameboard() {
     } while (!coords);
 
     setFood(coords);
+  }
+
+  function checkIfAteFood() {
+    const head = snakeParts[0];
+    return head.x === food.x && head.y === food.y;
   }
 
   return (
