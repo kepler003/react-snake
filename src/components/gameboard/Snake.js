@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import SnakePart from './SnakePart';
 
 export default function Snake() {
+  const size = 21;
   const speed = 10;
   let dir = 'up';
   let nextDir = 'up';
-  let timerID = null;
+  const [timerID, setTimerID] = useState(null);
   const [snakeParts, setSnakeParts] = useState([
     {
       x: 10,
@@ -23,9 +24,11 @@ export default function Snake() {
 
   // Move the snake
   useEffect(() => {
-    timerID = setInterval(() => {
-      move();
-    }, 1000 / speed);
+    setTimerID(
+      setInterval(() => {
+        move();
+      }, 1000 / speed)
+    );
 
     return () => clearInterval(timerID);
   }, []);
@@ -37,6 +40,11 @@ export default function Snake() {
       document.removeEventListener('keydown', handleKeyControl);
     };
   }, []);
+
+  // Check if snake is on board
+  useEffect(() => {
+    checkIfOnBoard();
+  }, [snakeParts[0].x, snakeParts[0].y]);
 
   function move() {
     setSnakeParts((prevSnakeParts) => {
@@ -70,6 +78,10 @@ export default function Snake() {
     });
   }
 
+  function stop() {
+    clearTimeout(timerID);
+  }
+
   function handleKeyControl(e) {
     const keyCodeMap = new Map([
       [37, 'left'],
@@ -90,11 +102,19 @@ export default function Snake() {
     nextDir = newDir;
   }
 
+  function checkIfOnBoard() {
+    const { x, y } = snakeParts[0];
+
+    if (x < 0 || y < 0 || x > size - 1 || y > size - 1) {
+      stop();
+    }
+  }
+
   return (
     <>
       {snakeParts.map(({ x, y }) => {
         const key = '' + x + y;
-        return <SnakePart key={key} x={x} y={y} />;
+        return <SnakePart key={key} x={x} y={y} size={size} />;
       })}
     </>
   );
