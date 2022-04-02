@@ -3,5 +3,5 @@ export default function joinClassNames(...classNames) {
     classNames = classNames[0];
   }
 
-  return classNames.join(' ').trim().replace(/  +/g, ' ');
+  return classNames.join(' ').trim().replace(/  +/g, ' ') || undefined;
 }
