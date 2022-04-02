@@ -1,0 +1,13 @@
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--c-primary-9);
+  background: linear-gradient(
+    to bottom right,
+    var(--c-primary-8),
+    var(--c-primary-9)
+  );
+}
