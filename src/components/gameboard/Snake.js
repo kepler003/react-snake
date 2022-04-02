@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import SnakePart from './SnakePart';
 
-export default function Snake({ onMove }) {
+export default function Snake({ onMove, eatCtr }) {
   const size = 21;
   const speed = 10;
   let dir = 'up';
@@ -19,6 +19,7 @@ export default function Snake({ onMove }) {
     {
       x: 10,
       y: 12,
+      hidden: true,
     },
   ]);
 
@@ -50,6 +51,15 @@ export default function Snake({ onMove }) {
   useEffect(() => {
     onMove(snakeParts);
   }, [snakeParts]);
+
+  // Increase length after eating
+  useEffect(() => {
+    if (eatCtr === 0) return;
+    setSnakeParts((prevParts) => {
+      delete prevParts[prevParts.length - 1].hidden;
+      return [...prevParts, { x: -1, y: -1, hidden: true }];
+    });
+  }, [eatCtr]);
 
   function move() {
     setSnakeParts((prevSnakeParts) => {
@@ -117,9 +127,9 @@ export default function Snake({ onMove }) {
 
   return (
     <>
-      {snakeParts.map(({ x, y }) => {
+      {snakeParts.map(({ x, y, hidden }) => {
         const key = '' + x + y;
-        return <SnakePart key={key} x={x} y={y} size={size} />;
+        return !hidden && <SnakePart key={key} x={x} y={y} size={size} />;
       })}
     </>
   );

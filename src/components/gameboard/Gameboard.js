@@ -6,6 +6,7 @@ import Food from './Food';
 export default function Gameboard() {
   const [snakeParts, setSnakeParts] = useState(null);
   const [food, setFood] = useState(null);
+  const [eatCtr, setEatCtr] = useState(0);
 
   // Placing the food
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function Gameboard() {
   useEffect(() => {
     if (!food || !snakeParts) return;
     if (!checkIfAteFood()) return;
+    setEatCtr((prevCtr) => prevCtr + 1);
     placeFood();
   }, [snakeParts]);
 
@@ -50,7 +52,7 @@ export default function Gameboard() {
 
   return (
     <div className={cls.gameboard}>
-      <Snake onMove={handleOnMove} />
+      <Snake eatCtr={eatCtr} onMove={handleOnMove} />
       {food && <Food {...food} />}
     </div>
   );
