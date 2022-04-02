@@ -44,8 +44,7 @@ export default function Snake({ onMove, eatCtr }) {
 
   // Check if snake is on board & if it ate itself
   useEffect(() => {
-    checkIfOnBoard();
-    if (checkIfAteItself()) {
+    if (checkIfAteItself() || checkIfOnBoard()) {
       stop();
     }
   }, [snakeParts[0].x, snakeParts[0].y]);
@@ -122,10 +121,7 @@ export default function Snake({ onMove, eatCtr }) {
 
   function checkIfOnBoard() {
     const { x, y } = snakeParts[0];
-
-    if (x < 0 || y < 0 || x > size - 1 || y > size - 1) {
-      stop();
-    }
+    return x < 0 || y < 0 || x > size - 1 || y > size - 1;
   }
 
   function checkIfAteItself() {
