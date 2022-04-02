@@ -1,15 +1,17 @@
 .btn {
   padding: var(--s-1) var(--s-3);
   background-color: var(--c-gray-2);
-  border: none;
+  border: 1px solid var(--c-gray-2);
   border-radius: var(--s-rad-sm);
   font-size: var(--s-4);
-  transition: background-color 150ms;
+  transition: background-color 150ms, border-color 150ms;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   cursor: pointer;
   background-color: var(--c-gray-1);
+  border-color: var(--c-gray-1);
 }
 
 .btn:focus {
@@ -40,39 +42,47 @@
 
 .primary {
   background-color: var(--c-primary);
+  border-color: var(--c-primary);
   color: white;
 }
 
 .primary:hover,
 .primary:focus {
   background-color: var(--c-primary-4);
+  border-color: var(--c-primary-4);
 }
 
 .secondary {
   background-color: var(--c-secondary);
+  border-color: var(--c-secondary);
   color: white;
 }
 
 .secondary:hover,
 .secondary:focus {
   background-color: var(--c-secondary-4);
+  border-color: var(--c-secondary-4);
 }
 
 .gray {
   background-color: var(--c-gray-4);
+  border-color: var(--c-gray-4);
   color: white;
 }
 
 .gray:hover,
 .gray:focus {
   background-color: var(--c-gray-3);
+  border-color: var(--c-gray-3);
 }
 
 .lightgray {
   background-color: var(--c-gray-2);
+  border-color: var(--c-gray-2);
 }
 
 .lightgray:hover,
 .lightgray:focus {
   background-color: var(--c-gray-1);
+  border-color: var(--c-gray-1);
 }
