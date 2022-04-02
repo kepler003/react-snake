@@ -1,0 +1,78 @@
+.btn {
+  padding: var(--s-1) var(--s-3);
+  background-color: var(--c-gray-2);
+  border: none;
+  border-radius: var(--s-rad-sm);
+  font-size: var(--s-4);
+  transition: background-color 150ms;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: var(--c-gray-1);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+/* Sizes */
+
+.xsmall {
+  padding: 0 calc(var(--s-1) / 2);
+  font-size: var(--s-text-sm);
+}
+
+.small {
+  padding: calc(var(--s-1) / 2) calc(var(--s-3) / 2);
+  font-size: var(--s-text-sm);
+}
+
+.large {
+  padding: var(--s-2) var(--s-5);
+}
+
+.xlarge {
+  padding: var(--s-4) var(--s-7);
+}
+
+/* Backgrounds */
+
+.primary {
+  background-color: var(--c-primary);
+  color: white;
+}
+
+.primary:hover,
+.primary:focus {
+  background-color: var(--c-primary-4);
+}
+
+.secondary {
+  background-color: var(--c-secondary);
+  color: white;
+}
+
+.secondary:hover,
+.secondary:focus {
+  background-color: var(--c-secondary-4);
+}
+
+.gray {
+  background-color: var(--c-gray-4);
+  color: white;
+}
+
+.gray:hover,
+.gray:focus {
+  background-color: var(--c-gray-3);
+}
+
+.lightgray {
+  background-color: var(--c-gray-2);
+}
+
+.lightgray:hover,
+.lightgray:focus {
+  background-color: var(--c-gray-1);
+}
