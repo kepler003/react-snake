@@ -71,9 +71,9 @@
   --c-secondary: var(--c-secondary-5);
   --c-secondary-l: var(--c-secondary-3);
   --c-secondary-d: var(--c-secondary-7);
-  --c-gray: var(--c-gray-5);
-  --c-gray-l: var(--c-gray-3);
-  --c-gray-d: var(--c-gray-7);
+  --c-gray: var(--c-gray-2);
+  --c-gray-l: var(--c-gray-1);
+  --c-gray-d: var(--c-gray-4);
   --c-danger: var(--c-danger-5);
   --c-danger-l: var(--c-danger-3);
   --c-danger-d: var(--c-danger-7);
