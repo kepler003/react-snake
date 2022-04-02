@@ -112,11 +112,11 @@
   --s-text-lg: var(--s-5);
   --s-text-xl: var(--s-6);
   --s-text: var(--text-md);
-  --s-rad-xs: var(--s-1);
-  --s-rad-sm: var(--s-2);
-  --s-rad-md: var(--s-3);
-  --s-rad-lg: var(--s-4);
-  --s-rad-xl: var(--s-5);
+  --s-rad-xs: 0.2rem;
+  --s-rad-sm: var(--s-1);
+  --s-rad-md: var(--s-2);
+  --s-rad-lg: var(--s-3);
+  --s-rad-xl: var(--s-4);
   --s-rad: var(--s-rad-sm);
 
   /* Shadows */
