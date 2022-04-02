@@ -42,9 +42,12 @@ export default function Snake({ onMove, eatCtr }) {
     };
   }, []);
 
-  // Check if snake is on board
+  // Check if snake is on board & if it ate itself
   useEffect(() => {
     checkIfOnBoard();
+    if (checkIfAteItself()) {
+      stop();
+    }
   }, [snakeParts[0].x, snakeParts[0].y]);
 
   // Lift up the snake position
@@ -125,11 +128,18 @@ export default function Snake({ onMove, eatCtr }) {
     }
   }
 
+  function checkIfAteItself() {
+    return snakeParts.some((snakePart, i) => {
+      if (i === 0) return;
+      const head = snakeParts[0];
+      return snakePart.x === head.x && snakePart.y === head.y;
+    });
+  }
+
   return (
     <>
-      {snakeParts.map(({ x, y, hidden }) => {
-        const key = '' + x + y;
-        return !hidden && <SnakePart key={key} x={x} y={y} size={size} />;
+      {snakeParts.map(({ x, y, hidden }, i) => {
+        return !hidden && <SnakePart key={i} x={x} y={y} size={size} />;
       })}
     </>
   );
