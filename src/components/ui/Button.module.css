@@ -38,6 +38,12 @@
   padding: var(--s-5) var(--s-8);
 }
 
+/* Width */
+
+.wide {
+  min-width: var(--s-11);
+}
+
 /* Backgrounds */
 
 .primary {
