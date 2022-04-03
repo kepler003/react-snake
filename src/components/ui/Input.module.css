@@ -16,3 +16,7 @@
   outline: none;
   border-color: var(--c-primary);
 }
+
+.input::placeholder {
+  color: var(--c-gray);
+}
