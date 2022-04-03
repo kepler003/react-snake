@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { toClassName } from '../../utils/utils';
+import asCard from './../hoc/asCard';
 import Snake from './Snake';
 import Food from './Food';
-import asCard from './../hoc/asCard';
 import cls from './Gameboard.module.css';
 
-function Gameboard({ className }) {
+function Gameboard({ className, onGameOver }) {
   const [snakeParts, setSnakeParts] = useState(null);
   const [food, setFood] = useState(null);
   const [eatCtr, setEatCtr] = useState(0);
@@ -54,10 +54,10 @@ function Gameboard({ className }) {
 
   return (
     <div className={toClassName(className, cls.gameboard)}>
-      <Snake eatCtr={eatCtr} onMove={handleOnMove} />
+      <Snake eatCtr={eatCtr} onMove={handleOnMove} onGameOver={onGameOver} />
       {food && <Food {...food} />}
     </div>
   );
-};
+}
 
 export default asCard(Gameboard);
