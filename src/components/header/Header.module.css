@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  width: 100%;
+  margin-bottom: var(--s-1);
+  border-radius: var(--s-rad-md);
+  overflow: hidden;
+}
+
+.block {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: var(--s-4);
+}
+
+.best {
+  background-color: var(--c-secondary-2);
+}
+
+.your {
+  background-color: white;
+}
+
+.label {
+  color: var(--c-gray-6);
+  text-transform: uppercase;
+}
+
+.value {
+  color: var(--c-secondary-7);
+  font-size: var(--s-5);
+  font-weight: 700;
+}
