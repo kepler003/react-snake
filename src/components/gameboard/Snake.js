@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import SnakePart from './SnakePart';
-import { getRelativeDir, getRoundnessType } from '../../utils/utils';
+import { getRoundnessType } from '../../utils/utils';
+import Context from '../../store/store';
 
 export default function Snake({ onMove, eatCtr }) {
+  const ctx = useContext(Context);
+
   const blockSize = 21;
   const speed = 10;
   let dir = 'up';
@@ -58,10 +61,13 @@ export default function Snake({ onMove, eatCtr }) {
   // Increase length after eating
   useEffect(() => {
     if (eatCtr === 0) return;
+
     setSnakeParts((prevParts) => {
       delete prevParts[prevParts.length - 1].hidden;
       return [...prevParts, { x: -1, y: -1, hidden: true }];
     });
+
+    ctx.snake.eat();
   }, [eatCtr]);
 
   function move() {
