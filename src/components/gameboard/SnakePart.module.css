@@ -1,3 +1,7 @@
+:root {
+  --snake-rounded-rad: var(--s-rad);
+}
+
 .snakePart {
   background-color: var(--c-secondary-7);
   border-color: var(--c-secondary-7);
@@ -9,21 +13,37 @@
 }
 
 .roundedTop {
-  border-top-left-radius: var(--s-rad);
-  border-top-right-radius: var(--s-rad);
+  border-top-left-radius: var(--snake-rounded-rad);
+  border-top-right-radius: var(--snake-rounded-rad);
 }
 
 .roundedBottom {
-  border-bottom-left-radius: var(--s-rad);
-  border-bottom-right-radius: var(--s-rad);
+  border-bottom-left-radius: var(--snake-rounded-rad);
+  border-bottom-right-radius: var(--snake-rounded-rad);
 }
 
 .roundedLeft {
-  border-top-left-radius: var(--s-rad);
-  border-bottom-left-radius: var(--s-rad);
+  border-top-left-radius: var(--snake-rounded-rad);
+  border-bottom-left-radius: var(--snake-rounded-rad);
 }
 
 .roundedRight {
-  border-top-right-radius: var(--s-rad);
-  border-bottom-right-radius: var(--s-rad);
+  border-top-right-radius: var(--snake-rounded-rad);
+  border-bottom-right-radius: var(--snake-rounded-rad);
+}
+
+.roundedTopLeft {
+  border-top-left-radius: var(--snake-rounded-rad);
+}
+
+.roundedTopRight {
+  border-top-right-radius: var(--snake-rounded-rad);
+}
+
+.roundedBottomLeft {
+  border-bottom-left-radius: var(--snake-rounded-rad);
+}
+
+.roundedBottomRight {
+  border-bottom-right-radius: var(--snake-rounded-rad);
 }
