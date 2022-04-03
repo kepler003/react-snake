@@ -3,7 +3,7 @@ import SnakePart from './SnakePart';
 import { getRelativeDir, getRoundnessType } from '../../utils/utils';
 
 export default function Snake({ onMove, eatCtr }) {
-  const size = 21;
+  const blockSize = 21;
   const speed = 10;
   let dir = 'up';
   let nextDir = 'up';
@@ -122,7 +122,7 @@ export default function Snake({ onMove, eatCtr }) {
 
   function checkIfOnBoard() {
     const { x, y } = snakeParts[0];
-    return x < 0 || y < 0 || x > size - 1 || y > size - 1;
+    return x < 0 || y < 0 || x > blockSize - 1 || y > blockSize - 1;
   }
 
   function checkIfAteItself() {
@@ -147,7 +147,7 @@ export default function Snake({ onMove, eatCtr }) {
               rounded={rounded}
               x={x}
               y={y}
-              size={size}
+              size={blockSize}
             />
           )
         );
