@@ -6,7 +6,7 @@ import Button from './../ui/Button';
 import cls from './Gameover.module.css';
 import Context from '../../store/store';
 
-function Gameover({ className, onChangeView }) {
+function Gameover({ className, changeView }) {
   const ctx = useContext(Context);
   const inputRef = useRef();
 
@@ -16,11 +16,13 @@ function Gameover({ className, onChangeView }) {
     }
   }, [inputRef.current]);
 
-  function onSaveHandler() {
-    const value = inputRef.current.value;
-    if (value.trim() === '') return;
-    ctx.leaderboard.addPlayer(value);
-    onChangeView('leaderboard');
+  function save() {
+    const name = inputRef.current.value;
+
+    if (name.trim() === '') return;
+
+    ctx.leaderboard.addPlayer(name);
+    changeView('leaderboard');
   }
 
   return (
@@ -28,12 +30,7 @@ function Gameover({ className, onChangeView }) {
       <h1>Your snake is #12</h1>
       <p>{ctx.snake.length / 100}m</p>
       <Input placeholder='Your name' ref={inputRef} />
-      <Button
-        className={cls.saveBtn}
-        theme='secondary'
-        wide
-        onClick={onSaveHandler}
-      >
+      <Button className={cls.saveBtn} theme='secondary' wide onClick={save}>
         Save
       </Button>
       <Button theme='secondary' wide>

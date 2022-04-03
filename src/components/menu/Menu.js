@@ -3,16 +3,18 @@ import asCard from './../hoc/asCard';
 import Button from './../ui/Button';
 import cls from './Menu.module.css';
 
-function Menu({ className, onChangeView, ...props }) {
+function Menu({ className, changeView }) {
   function play() {
-    onChangeView('game');
+    changeView('board');
   }
 
   return (
-    <div className={toClassName(className, cls.menu)} {...props}>
+    <div className={toClassName(className, cls.menu)}>
       <h1>SNAKE</h1>
       <Button theme='secondary'>Leaderboard</Button>
-      <Button theme='secondary' onClick={play}>Play</Button>
+      <Button theme='secondary' onClick={play}>
+        Play
+      </Button>
     </div>
   );
 }
