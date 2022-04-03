@@ -4,7 +4,18 @@ const Context = createContext();
 
 function ContextProvider({ children }) {
   const [snake, setSnake] = useState({ length: 30 });
-  const [leaderboard, dispatchLeaderboard] = useReducer(leaderboardReducer, []);
+  const [leaderboard, dispatchLeaderboard] = useReducer(leaderboardReducer, [
+    {
+      id: Math.random().toString(),
+      name: 'Bartek',
+      score: 120,
+    },
+    {
+      id: Math.random().toString(),
+      name: 'Gabi',
+      score: 30,
+    },
+  ]);
 
   function eat() {
     setSnake((prevSnake) => ({
@@ -14,7 +25,11 @@ function ContextProvider({ children }) {
   }
 
   function addPlayer(name) {
-    dispatchLeaderboard({ type: 'add', name, score: snake.length });
+    dispatchLeaderboard({
+      type: 'add',
+      name,
+      score: snake.length
+    });
   }
 
   const store = {
@@ -38,15 +53,18 @@ function leaderboardReducer(leaderboard, action) {
       const newPlayer = {
         name: action.name,
         score: action.score,
+        id: Math.random().toString()
       };
 
       if (newLeaderboard.length === 0) {
         return [...newLeaderboard, newPlayer];
       } else {
-        for (let i = 0; i < newLeaderboard.length - 1; i++) {
+        for (let i = 0; i < newLeaderboard.length; i++) {
           const player = newLeaderboard[i];
+          console.log(player.score, action.score, player.score >= action.score);
           if (player.score >= action.score) continue;
-          return newLeaderboard.splice(i, 0, newPlayer);
+          newLeaderboard.splice(i, 0, newPlayer);
+          return newLeaderboard;
         }
 
         return [...newLeaderboard, newPlayer];
