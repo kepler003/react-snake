@@ -1,7 +1,19 @@
+import { forwardRef } from 'react';
 import joinClassNames from '../../utils/toClassName';
 import cls from './Input.module.css';
 
-export default function Input({ className, type = 'text', ...props }) {
-  const classNames = joinClassNames(className, cls.input);
-  return <input type={type} className={classNames} {...props} />;
-}
+export default forwardRef(({ className, type = 'text', ...props }, ref) => {
+  function onFocusHandler() {
+    ref.current.select();
+  }
+
+  return (
+    <input
+      type={type}
+      className={joinClassNames(className, cls.input)}
+      ref={ref}
+      onFocus={onFocusHandler}
+      {...props}
+    />
+  );
+});
