@@ -1,0 +1,6 @@
+.card {
+  width: 50vw;
+  height: 50vw;
+  background-color: white;
+  border-radius: var(--s-rad-lg);
+}
