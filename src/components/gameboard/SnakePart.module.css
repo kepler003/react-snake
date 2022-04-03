@@ -1,14 +1,21 @@
+:root {
+  --c-snake-dark: hsl(34.09, 29.73%, 25.02%);
+}
+
 .snakePart {
   background-color: var(--c-secondary-7);
   border-color: var(--c-secondary-7);
+  box-shadow: 0 0 0 1px var(--c-secondary-7);
 }
 
 .snakePart:nth-child(2n + 1) {
-  background-color: hsl(34.09, 29.73%, 25.02%);
-  border-color: hsl(34.09, 29.73%, 25.02%);
+  background-color: var(--c-snake-dark);
+  border-color: var(--c-snake-dark);
+  box-shadow: 0 0 0 1px var(--c-snake-dark);
 }
 
 .snakePart:nth-child(1) {
   background-color: var(--c-secondary-8);
   border-color: var(--c-secondary-8);
+  box-shadow: 0 0 0 1px var(--c-secondary-8);
 }
