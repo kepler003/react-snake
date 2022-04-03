@@ -4,15 +4,13 @@ import Button from './../ui/Button';
 import cls from './Menu.module.css';
 
 function Menu({ className, changeView }) {
-  function play() {
-    changeView('board');
-  }
-
   return (
     <div className={toClassName(className, cls.menu)}>
       <h1>SNAKE</h1>
-      <Button theme='secondary'>Leaderboard</Button>
-      <Button theme='secondary' onClick={play}>
+      <Button theme='secondary' onClick={() => changeView('leaderboard')}>
+        Leaderboard
+      </Button>
+      <Button theme='secondary' onClick={() => changeView('board')}>
         Play
       </Button>
     </div>
