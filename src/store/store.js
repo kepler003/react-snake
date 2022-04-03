@@ -24,12 +24,17 @@ function ContextProvider({ children }) {
     }));
   }
 
+  function reset() {
+    setSnake({ length: 30 });
+  }
+
   function addPlayer(name) {
     dispatchLeaderboard({
       type: 'add',
       name,
-      score: snake.length
+      score: snake.length,
     });
+    reset();
   }
 
   const store = {
@@ -53,7 +58,7 @@ function leaderboardReducer(leaderboard, action) {
       const newPlayer = {
         name: action.name,
         score: action.score,
-        id: Math.random().toString()
+        id: Math.random().toString(),
       };
 
       if (newLeaderboard.length === 0) {
