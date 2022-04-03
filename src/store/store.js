@@ -61,7 +61,6 @@ function leaderboardReducer(leaderboard, action) {
       } else {
         for (let i = 0; i < newLeaderboard.length; i++) {
           const player = newLeaderboard[i];
-          console.log(player.score, action.score, player.score >= action.score);
           if (player.score >= action.score) continue;
           newLeaderboard.splice(i, 0, newPlayer);
           return newLeaderboard;
