@@ -16,12 +16,18 @@ function Gameover({ className }) {
     }
   }, [inputRef.current]);
 
+  function onSaveHandler() {
+    const value = inputRef.current.value;
+    if (value.trim() === '') return;
+    ctx.leaderboard.addPlayer(value);
+  }
+
   return (
     <div className={toClassName(className, cls.gameover)}>
       <h1>Your snake is #12</h1>
       <p>{ctx.snake.length / 100}m</p>
       <Input placeholder='Your name' ref={inputRef} />
-      <Button className={cls.saveBtn} theme='secondary' wide>
+      <Button className={cls.saveBtn} theme='secondary' wide onClick={onSaveHandler}>
         Save
       </Button>
       <Button theme='secondary' wide>
