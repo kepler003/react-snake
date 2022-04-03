@@ -1,4 +1,5 @@
 import toClassName from './toClassName';
 import getRelativeDir from './getRelativeDir';
+import getRoundnessType from './getRoundnessType';
 
-export { toClassName, getRelativeDir };
+export { toClassName, getRelativeDir, getRoundnessType };
