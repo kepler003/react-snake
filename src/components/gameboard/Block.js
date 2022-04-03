@@ -1,7 +1,7 @@
 import cls from './Block.module.css';
 import toClassName from './../../utils/toClassName';
 
-export default function Block({ className, size = 21, x, y, rounded }) {
+export default function Block({ className, size = 21, x, y, style, rounded }) {
   const roundedClassNamesMap = {
     all: cls.rounded,
     top: cls.roundedTop,
@@ -20,11 +20,12 @@ export default function Block({ className, size = 21, x, y, rounded }) {
     roundedClassNamesMap[rounded]
   );
 
-  const style = {
+  const styles = {
+    ...style,
     width: `calc(100% / ${size})`,
     height: `calc(100% / ${size})`,
     transform: `translate(${100 * x}%, ${100 * y}%)`,
   };
 
-  return <div className={classNames} style={style}></div>;
+  return <div className={classNames} style={styles}></div>;
 }

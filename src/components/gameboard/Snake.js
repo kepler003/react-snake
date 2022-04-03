@@ -140,7 +140,15 @@ export default function Snake({ onMove, eatCtr }) {
         const rounded = getRoundnessType(x, y, i, snakeParts);
         return (
           !hidden && (
-            <SnakePart key={i} rounded={rounded} x={x} y={y} size={size} />
+            <SnakePart
+              key={i}
+              index={i}
+              snakeLength={snakeParts.length}
+              rounded={rounded}
+              x={x}
+              y={y}
+              size={size}
+            />
           )
         );
       })}
