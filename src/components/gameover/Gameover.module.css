@@ -1,0 +1,31 @@
+.gameover {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: var(--s-6);
+}
+
+.gameover h1 {
+  color: var(--c-gray-4);
+  font-size: var(--s-5);
+}
+
+.gameover p {
+  color: var(--c-secondary-7);
+  font-size: var(--s-7);
+  font-weight: bold;
+}
+
+.gameover input {
+  max-width: var(--s-11);
+  margin-top: var(--s-6);
+  text-align: center;
+}
+
+.gameover button {
+  margin-top: var(--s-4);
+}
+
+.saveBtn {
+  margin-bottom: var(--s-5);
+}
