@@ -7,6 +7,7 @@ export default function Button({
   theme,
   size,
   wide,
+  onClick,
   ...props
 }) {
   const classNames = toClassName(
@@ -16,8 +17,14 @@ export default function Button({
     cls[size],
     wide && cls.wide
   );
+
+  function onClickHandler(e) {
+    e.target.blur();
+    onClick && onClick(e);
+  }
+  
   return (
-    <button className={classNames} {...props}>
+    <button className={classNames} onClick={onClickHandler} {...props}>
       {children}
     </button>
   );
