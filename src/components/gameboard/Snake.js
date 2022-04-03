@@ -3,7 +3,7 @@ import SnakePart from './SnakePart';
 import { getRoundnessType } from '../../utils/utils';
 import Context from '../../store/store';
 
-export default function Snake({ onMove, eatCtr }) {
+export default function Snake({ onMove, eatCtr, onGameOver }) {
   const ctx = useContext(Context);
 
   const blockSize = 21;
@@ -50,6 +50,7 @@ export default function Snake({ onMove, eatCtr }) {
   useEffect(() => {
     if (checkIfAteItself() || checkIfOnBoard()) {
       stop();
+      onGameOver();
     }
   }, [snakeParts[0].x, snakeParts[0].y]);
 
