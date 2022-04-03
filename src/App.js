@@ -9,7 +9,7 @@ import Gameover from './components/gameover/Gameover';
 import Leaderboard from './components/leaderboard/Leaderboard';
 
 function App() {
-  const [view, setView] = useState('menu');
+  const [view, setView] = useState('leaderboard');
 
   const viewsMap = {
     menu: <Menu changeView={changeView} />,
