@@ -76,7 +76,7 @@ export default function Snake({ onMove, eatCtr }) {
         };
 
         if (i === 0) {
-          switch (dir) {
+          switch (nextDir) {
             case 'up':
               return { ...snakePart, y: snakePart.y - 1 };
             case 'down':
