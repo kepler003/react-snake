@@ -3,9 +3,9 @@ import asCard from './../hoc/asCard';
 import Button from './../ui/Button';
 import cls from './Menu.module.css';
 
-function Menu({ className, onPlay, ...props }) {
+function Menu({ className, onChangeView, ...props }) {
   function play() {
-    onPlay();
+    onChangeView('game');
   }
 
   return (

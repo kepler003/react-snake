@@ -5,7 +5,7 @@ import Snake from './Snake';
 import Food from './Food';
 import cls from './Gameboard.module.css';
 
-function Gameboard({ className, onGameOver }) {
+function Gameboard({ className, onChangeView }) {
   const [snakeParts, setSnakeParts] = useState(null);
   const [food, setFood] = useState(null);
   const [eatCtr, setEatCtr] = useState(0);
@@ -54,7 +54,11 @@ function Gameboard({ className, onGameOver }) {
 
   return (
     <div className={toClassName(className, cls.gameboard)}>
-      <Snake eatCtr={eatCtr} onMove={handleOnMove} onGameOver={onGameOver} />
+      <Snake
+        eatCtr={eatCtr}
+        onMove={handleOnMove}
+        onGameOver={() => onChangeView('gameover')}
+      />
       {food && <Food {...food} />}
     </div>
   );
