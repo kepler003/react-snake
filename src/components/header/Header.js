@@ -1,7 +1,11 @@
+import { useContext } from 'react';
+import Context from '../../store/store';
 import cls from './Header.module.css';
 import { toClassName } from '../../utils/utils';
 
 export default function Header() {
+  const ctx = useContext(Context);
+
   return (
     <header className={cls.header}>
       <div className={toClassName(cls.block, cls.best)}>
@@ -10,7 +14,7 @@ export default function Header() {
       </div>
       <div className={toClassName(cls.block, cls.your)}>
         <span className={cls.label}>length</span>
-        <span className={cls.value}>10.2m</span>
+        <span className={cls.value}>{ctx.snake.length / 100}m</span>
       </div>
     </header>
   );
