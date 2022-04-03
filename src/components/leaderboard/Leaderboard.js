@@ -1,64 +1,37 @@
+import { useContext } from 'react';
+import Context from '../../store/store';
 import { toClassName } from '../../utils/utils';
 import asCard from '../hoc/asCard';
 import Button from '../ui/Button';
 import cls from './Leaderboard.module.css';
 
 function Leaderboard({ className, changeView }) {
+  const players = useContext(Context).leaderboard.list;
+  
   function onClick() {
     changeView('menu');
   }
-  
+
   return (
     <div className={toClassName(className, cls.board)}>
       <h1>Leaderboard</h1>
-      <ul>
-        <li>
-          <span>#1</span>
-          <span>Name</span>
-          <span>13.1m</span>
-        </li>
-        <li>
-          <span>#2</span>
-          <span>Name</span>
-          <span>11.1m</span>
-        </li>
-        <li>
-          <span>#3</span>
-          <span>Name</span>
-          <span>9.7m</span>
-        </li>
-        <li>
-          <span>#4</span>
-          <span>Name</span>
-          <span>9.7m</span>
-        </li>
-        <li>
-          <span>#5</span>
-          <span>Name</span>
-          <span>9.7m</span>
-        </li>
-        <li>
-          <span>#5</span>
-          <span>Name</span>
-          <span>9.7m</span>
-        </li>
-        <li>
-          <span>#5</span>
-          <span>Name</span>
-          <span>9.7m</span>
-        </li>
-        <li>
-          <span>#5</span>
-          <span>Name</span>
-          <span>9.7m</span>
-        </li>
-        <li>
-          <span>#5</span>
-          <span>Name</span>
-          <span>9.7m</span>
-        </li>
-      </ul>
-      <Button theme='secondary' wide onClick={onClick}>Menu</Button>
+      {players.length === 0 && <p className={cls.noPlayers}>No players... yet!</p>}
+      {players.length !== 0 && (
+        <ul>
+          {players.map(({ name, score, id }, i) => {
+            return (
+              <li key={id} dataid={id}>
+                <span>#{i + 1}</span>
+                <span>{name}</span>
+                <span>{score / 100}m</span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      <Button className={cls.menuBtn} onClick={onClick} theme='secondary' wide>
+        Menu
+      </Button>
     </div>
   );
 }

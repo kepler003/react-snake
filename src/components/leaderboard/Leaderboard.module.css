@@ -49,3 +49,11 @@
   padding: 0 var(--s-3);
   font-weight: bold;
 }
+
+.menuBtn {
+  margin-top: auto;
+}
+
+.noPlayers {
+  margin-top: var(--s-5);
+}
