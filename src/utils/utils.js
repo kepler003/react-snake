@@ -1,3 +1,4 @@
 import toClassName from './toClassName';
+import getRelativeDir from './getRelativeDir';
 
-export { toClassName };
+export { toClassName, getRelativeDir };
