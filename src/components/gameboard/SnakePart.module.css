@@ -1,49 +1,14 @@
-:root {
-  --snake-rounded-rad: var(--s-rad);
-}
-
 .snakePart {
   background-color: var(--c-secondary-7);
   border-color: var(--c-secondary-7);
 }
 
-.snakePart:nth-child(2n) {
+.snakePart:nth-child(2n + 1) {
   background-color: hsl(34.09, 29.73%, 25.02%);
   border-color: hsl(34.09, 29.73%, 25.02%);
 }
 
-.roundedTop {
-  border-top-left-radius: var(--snake-rounded-rad);
-  border-top-right-radius: var(--snake-rounded-rad);
-}
-
-.roundedBottom {
-  border-bottom-left-radius: var(--snake-rounded-rad);
-  border-bottom-right-radius: var(--snake-rounded-rad);
-}
-
-.roundedLeft {
-  border-top-left-radius: var(--snake-rounded-rad);
-  border-bottom-left-radius: var(--snake-rounded-rad);
-}
-
-.roundedRight {
-  border-top-right-radius: var(--snake-rounded-rad);
-  border-bottom-right-radius: var(--snake-rounded-rad);
-}
-
-.roundedTopLeft {
-  border-top-left-radius: var(--snake-rounded-rad);
-}
-
-.roundedTopRight {
-  border-top-right-radius: var(--snake-rounded-rad);
-}
-
-.roundedBottomLeft {
-  border-bottom-left-radius: var(--snake-rounded-rad);
-}
-
-.roundedBottomRight {
-  border-bottom-right-radius: var(--snake-rounded-rad);
+.snakePart:nth-child(1) {
+  background-color: var(--c-secondary-8);
+  border-color: var(--c-secondary-8);
 }

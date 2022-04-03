@@ -1,7 +1,51 @@
+:root {
+  --rad-block: var(--s-rad);
+}
+
 .block {
   background-color: var(--c-gray-6);
   border: 1px solid var(--c-gray-6);
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.rounded {
+  border-radius: var(--rad-block);
+}
+
+.roundedTop {
+  border-top-left-radius: var(--snake-rounded-rad);
+  border-top-right-radius: var(--snake-rounded-rad);
+}
+
+.roundedBottom {
+  border-bottom-left-radius: var(--snake-rounded-rad);
+  border-bottom-right-radius: var(--snake-rounded-rad);
+}
+
+.roundedLeft {
+  border-top-left-radius: var(--snake-rounded-rad);
+  border-bottom-left-radius: var(--snake-rounded-rad);
+}
+
+.roundedRight {
+  border-top-right-radius: var(--snake-rounded-rad);
+  border-bottom-right-radius: var(--snake-rounded-rad);
+}
+
+.roundedTopLeft {
+  border-top-left-radius: var(--snake-rounded-rad);
+}
+
+.roundedTopRight {
+  border-top-right-radius: var(--snake-rounded-rad);
+}
+
+.roundedBottomLeft {
+  border-bottom-left-radius: var(--snake-rounded-rad);
+}
+
+.roundedBottomRight {
+  border-bottom-right-radius: var(--snake-rounded-rad);
 }
