@@ -3,7 +3,7 @@ import toClassName from './../../utils/toClassName';
 
 export default function Block({ className, size = 21, x, y, rounded }) {
   const roundedClassNamesMap = {
-    rounded: cls.rounded,
+    all: cls.rounded,
     top: cls.roundedTop,
     bottom: cls.roundedBottom,
     left: cls.roundedLeft,
