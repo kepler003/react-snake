@@ -35,13 +35,21 @@ function leaderboardReducer(leaderboard, action) {
   switch (action.type) {
     case 'add': {
       const newLeaderboard = [...leaderboard];
+      const newPlayer = {
+        name: action.name,
+        score: action.score,
+      };
 
-      for (const [player, i] of newLeaderboard) {
-        if (player.score >= action.score) continue;
-        return newLeaderboard.splice(i, 0, {
-          name: action.name,
-          score: action.score,
-        });
+      if (newLeaderboard.length === 0) {
+        return [...newLeaderboard, newPlayer];
+      } else {
+        for (let i = 0; i < newLeaderboard.length - 1; i++) {
+          const player = newLeaderboard[i];
+          if (player.score >= action.score) continue;
+          return newLeaderboard.splice(i, 0, newPlayer);
+        }
+
+        return [...newLeaderboard, newPlayer];
       }
     }
   }
