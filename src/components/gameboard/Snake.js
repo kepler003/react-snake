@@ -128,6 +128,7 @@ export default function Snake({ onMove, eatCtr }) {
   function checkIfAteItself() {
     return snakeParts.some((snakePart, i) => {
       if (i === 0) return;
+      if (i === snakeParts.length - 1) return;
       const head = snakeParts[0];
       return snakePart.x === head.x && snakePart.y === head.y;
     });
