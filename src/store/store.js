@@ -4,18 +4,7 @@ const Context = createContext();
 
 function ContextProvider({ children }) {
   const [snake, setSnake] = useState({ length: 30 });
-  const [leaderboard, dispatchLeaderboard] = useReducer(leaderboardReducer, [
-    {
-      id: Math.random().toString(),
-      name: 'Bartek',
-      score: 120,
-    },
-    {
-      id: Math.random().toString(),
-      name: 'Gabi',
-      score: 30,
-    },
-  ]);
+  const [leaderboard, dispatchLeaderboard] = useReducer(leaderboardReducer, []);
 
   function eat() {
     setSnake((prevSnake) => ({
@@ -41,6 +30,7 @@ function ContextProvider({ children }) {
     snake: {
       ...snake,
       eat,
+      reset,
     },
     leaderboard: {
       list: leaderboard,
