@@ -25,6 +25,16 @@ function Gameover({ className, changeView }) {
     changeView('leaderboard');
   }
 
+  function onMenuClickHandler() {
+    changeView('menu');
+    ctx.snake.reset();
+  }
+
+  function onTryAgainClickHandler() {
+    changeView('board');
+    ctx.snake.reset();
+  }
+
   return (
     <div className={toClassName(className, cls.gameover)}>
       <h1>Your snake is #12</h1>
@@ -33,10 +43,10 @@ function Gameover({ className, changeView }) {
       <Button className={cls.saveBtn} theme='secondary' wide onClick={save}>
         Save
       </Button>
-      <Button theme='secondary' wide>
+      <Button theme='secondary' wide onClick={onMenuClickHandler}>
         Menu
       </Button>
-      <Button theme='secondary' wide>
+      <Button theme='secondary' wide onClick={onTryAgainClickHandler}>
         Try again
       </Button>
     </div>
