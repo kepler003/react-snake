@@ -1,10 +1,10 @@
 import { useRef, useEffect, useContext } from 'react';
 import { toClassName } from '../../utils/utils';
+import Context from '../../store/store';
 import asCard from '../hoc/asCard';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import cls from './End.module.css';
-import Context from '../../store/store';
 
 function End({ className, changeView }) {
   const ctx = useContext(Context);
@@ -14,7 +14,7 @@ function End({ className, changeView }) {
     if (inputRef) {
       inputRef.current.focus();
     }
-  }, [inputRef.current]);
+  }, [inputRef]);
 
   function onSubmitHandler(e) {
     e.preventDefault();
@@ -27,6 +27,10 @@ function End({ className, changeView }) {
     changeView('ranking');
   }
 
+  function onFocusHandler() {
+    inputRef.current.select();
+  }
+
   function onMenuClickHandler() {
     ctx.reset();
     changeView('menu');
@@ -37,20 +41,26 @@ function End({ className, changeView }) {
     changeView('game');
   }
 
+  const length = `${ctx.length / 100}m`;
+
   return (
     <div className={toClassName(className, cls.ranking)}>
       <h1>Your snake has</h1>
-      <p>{ctx.length / 100}m</p>
+      <p>{length}</p>
       <form onSubmit={onSubmitHandler}>
-        <Input placeholder='Your name' ref={inputRef} />
+        <Input
+          onFocus={onFocusHandler}
+          placeholder={`What's your name?`}
+          ref={inputRef}
+        />
         <Button className={cls.saveBtn} type='submit' theme='secondary' wide>
           Save
         </Button>
       </form>
-      <Button theme='secondary' wide onClick={onMenuClickHandler}>
+      <Button onClick={onMenuClickHandler} theme='secondary' wide>
         Menu
       </Button>
-      <Button theme='secondary' wide onClick={onTryAgainClickHandler}>
+      <Button onClick={onTryAgainClickHandler} theme='secondary' wide>
         Try again
       </Button>
     </div>

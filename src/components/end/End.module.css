@@ -6,12 +6,12 @@
 }
 
 .ranking h1 {
-  color: var(--c-secondary);
+  color: var(--c-primary);
   font-size: var(--s-5);
 }
 
 .ranking p {
-  color: var(--c-secondary-7);
+  color: var(--c-primary-7);
   font-size: var(--s-7);
   font-weight: bold;
 }
