@@ -1,7 +1,7 @@
 import { useContext } from 'react';
+import { toClassName } from '../../utils/utils';
 import Context from '../../store/store';
 import cls from './Header.module.css';
-import { toClassName } from '../../utils/utils';
 
 export default function Header() {
   const ctx = useContext(Context);
