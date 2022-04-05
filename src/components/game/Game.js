@@ -5,7 +5,7 @@ import Snake from './Snake';
 import Food from './Food';
 import cls from './Game.module.css';
 
-function Gameboard({ className, changeView }) {
+function Game({ className, changeView }) {
   const [snakeParts, setSnakeParts] = useState(null);
   const [food, setFood] = useState(null);
   const [eatCtr, setEatCtr] = useState(0);
@@ -68,4 +68,4 @@ function Gameboard({ className, changeView }) {
   );
 }
 
-export default asCard(Gameboard);
+export default asCard(Game);
