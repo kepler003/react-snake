@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { toClassName } from '../../utils/utils';
-import asCard from './../hoc/asCard';
+import asCard from '../hoc/asCard';
 import Snake from './Snake';
 import Food from './Food';
-import cls from './Gameboard.module.css';
+import cls from './Game.module.css';
 
 function Gameboard({ className, changeView }) {
   const [snakeParts, setSnakeParts] = useState(null);

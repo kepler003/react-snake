@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ContextProvider } from './store/store';
 import Background from './components/layout/Background';
 import Main from './components/layout/Main';
-import Gameboard from './components/gameboard/Gameboard';
+import Game from './components/game/Game';
 import Header from './components/header/Header';
 import Menu from './components/menu/Menu';
 import Gameover from './components/gameover/Gameover';
@@ -13,7 +13,7 @@ function App() {
 
   const viewsMap = {
     menu: <Menu changeView={changeView} />,
-    game: <Gameboard changeView={changeView} />,
+    game: <Game changeView={changeView} />,
     end: <Gameover changeView={changeView} />,
     ranking: <Leaderboard changeView={changeView} />,
   };
