@@ -53,7 +53,7 @@ function Gameboard({ className, changeView }) {
   }
 
   function onGameOverHandler() {
-    changeView('over');
+    changeView('end');
   }
 
   return (

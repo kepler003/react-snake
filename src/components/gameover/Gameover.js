@@ -23,7 +23,7 @@ function Gameover({ className, changeView }) {
 
     ctx.saveScore(name);
     ctx.reset();
-    changeView('leaderboard');
+    changeView('ranking');
   }
 
   function onMenuClickHandler() {
@@ -33,7 +33,7 @@ function Gameover({ className, changeView }) {
 
   function onTryAgainClickHandler() {
     ctx.reset();
-    changeView('board');
+    changeView('game');
   }
 
   return (
