@@ -56,7 +56,7 @@
   --c-info-9: hsl(197.14, 30.43%, 4.51%);
 
   /* Helper colors */
-  --c-primary: var(--c-secondary-5);
+  --c-primary: var(--c-primary-5);
   --c-gray: var(--c-gray-4);
   --c-danger: var(--c-danger-5);
   --c-success: var(--c-success-5);
