@@ -1,33 +1,33 @@
-.gameover {
+.ranking {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   padding: var(--s-6);
 }
 
-.gameover h1 {
+.ranking h1 {
   color: var(--c-gray-4);
   font-size: var(--s-5);
 }
 
-.gameover p {
+.ranking p {
   color: var(--c-secondary-7);
   font-size: var(--s-7);
   font-weight: bold;
 }
 
-.gameover form {
+.ranking form {
   display: flex;
   flex-flow: column nowrap;
 }
 
-.gameover input {
+.ranking input {
   max-width: var(--s-11);
   margin-top: var(--s-6);
   text-align: center;
 }
 
-.gameover button {
+.ranking button {
   margin-top: var(--s-4);
 }
 

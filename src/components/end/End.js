@@ -38,12 +38,12 @@ function End({ className, changeView }) {
   }
 
   return (
-    <div className={toClassName(className, cls.gameover)}>
+    <div className={toClassName(className, cls.ranking)}>
       <h1>Your snake is #12</h1>
       <p>{ctx.length / 100}m</p>
       <form onSubmit={onSubmitHandler}>
         <Input placeholder='Your name' ref={inputRef} />
-        <Button className={cls.saveBtn} type='submit' theme='secondary' wide>
+        <Button className={cls.saveBtn} type='submit' theme='primary' wide>
           Save
         </Button>
       </form>
