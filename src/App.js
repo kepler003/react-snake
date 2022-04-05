@@ -5,7 +5,7 @@ import Main from './components/layout/Main';
 import Game from './components/game/Game';
 import Header from './components/header/Header';
 import Menu from './components/menu/Menu';
-import Gameover from './components/gameover/Gameover';
+import End from './components/end/End';
 import Leaderboard from './components/leaderboard/Leaderboard';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   const viewsMap = {
     menu: <Menu changeView={changeView} />,
     game: <Game changeView={changeView} />,
-    end: <Gameover changeView={changeView} />,
+    end: <End changeView={changeView} />,
     ranking: <Leaderboard changeView={changeView} />,
   };
 

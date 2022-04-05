@@ -1,12 +1,12 @@
 import { useRef, useEffect, useContext } from 'react';
 import { toClassName } from '../../utils/utils';
 import asCard from '../hoc/asCard';
-import Input from './../ui/Input';
-import Button from './../ui/Button';
-import cls from './Gameover.module.css';
+import Input from '../ui/Input';
+import Button from '../ui/Button';
+import cls from './End.module.css';
 import Context from '../../store/store';
 
-function Gameover({ className, changeView }) {
+function End({ className, changeView }) {
   const ctx = useContext(Context);
   const inputRef = useRef();
 
@@ -54,4 +54,4 @@ function Gameover({ className, changeView }) {
   );
 }
 
-export default asCard(Gameover);
+export default asCard(End);
