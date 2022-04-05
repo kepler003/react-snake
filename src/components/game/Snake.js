@@ -25,6 +25,7 @@ export default function Snake({ onMove, onGameOver, food }) {
       hidden: true,
     },
   ]);
+  const [justAte, setJustAte] = useState(false);
 
   // Set up arrow key control
   useEffect(() => {
@@ -58,10 +59,16 @@ export default function Snake({ onMove, onGameOver, food }) {
     }
   }, [snakeParts[0]]);
 
+  // Prepare for next food
+  useEffect(() => {
+    setJustAte(false);
+  }, [food]);
+
   // Eating food
   useEffect(() => {
     if (!food) return;
-    
+    if (justAte) return;
+
     const head = snakeParts[0];
 
     if (head.x === food.x && head.y === food.y) {
@@ -69,6 +76,7 @@ export default function Snake({ onMove, onGameOver, food }) {
         delete prevParts[prevParts.length - 1].hidden;
         return [...prevParts, { x: -1, y: -1, hidden: true }];
       });
+      setJustAte(true);
       ctx.extend();
     }
   }, [food, snakeParts]);
