@@ -3,9 +3,8 @@ import SnakePart from './SnakePart';
 import { getRoundnessType } from '../../utils/utils';
 import Context from '../../store/store';
 
-export default function Snake({ onMove, eatCtr, onGameOver }) {
+export default function Snake({ onMove, onGameOver, food }) {
   const ctx = useContext(Context);
-
   const blockSize = 21;
   const speed = 10;
   let dir = 'up';
@@ -27,6 +26,14 @@ export default function Snake({ onMove, eatCtr, onGameOver }) {
     },
   ]);
 
+  // Set up arrow key control
+  useEffect(() => {
+    document.addEventListener('keydown', onKeyUpHandler);
+    return () => {
+      document.removeEventListener('keydown', onKeyUpHandler);
+    };
+  }, []);
+
   // Move the snake
   useEffect(() => {
     setTimerID(
@@ -38,38 +45,31 @@ export default function Snake({ onMove, eatCtr, onGameOver }) {
     return () => clearInterval(timerID);
   }, []);
 
-  // Set up arrow key control
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyControl);
-    return () => {
-      document.removeEventListener('keydown', handleKeyControl);
-    };
-  }, []);
-
-  // Check if snake is on board & if it ate itself
-  useEffect(() => {
-    if (checkIfAteItself() || checkIfOnBoard()) {
-      stop();
-      onGameOver();
-    }
-  }, [snakeParts[0].x, snakeParts[0].y]);
-
-  // Lift up the snake position
+  // Lift up snake's position
   useEffect(() => {
     onMove(snakeParts);
   }, [snakeParts]);
 
-  // Increase length after eating
+  // Check if snake is on board or if it is eating itself
   useEffect(() => {
-    if (eatCtr === 0) return;
+    if (checkIfIsEatingItself() || checkIfIsOnBoard()) {
+      stop();
+      onGameOver();
+    }
+  }, [snakeParts[0]]);
 
-    setSnakeParts((prevParts) => {
-      delete prevParts[prevParts.length - 1].hidden;
-      return [...prevParts, { x: -1, y: -1, hidden: true }];
-    });
+  // Eating food
+  useEffect(() => {
+    const head = snakeParts[0];
 
-    ctx.extend();
-  }, [eatCtr]);
+    if (head.x === food.x && head.y === food.y) {
+      setSnakeParts((prevParts) => {
+        delete prevParts[prevParts.length - 1].hidden;
+        return [...prevParts, { x: -1, y: -1, hidden: true }];
+      });
+      ctx.extend();
+    }
+  }, [food, snakeParts]);
 
   function move() {
     setSnakeParts((prevSnakeParts) => {
@@ -107,7 +107,7 @@ export default function Snake({ onMove, eatCtr, onGameOver }) {
     clearTimeout(timerID);
   }
 
-  function handleKeyControl(e) {
+  function onKeyUpHandler(e) {
     const keyCodeMap = new Map([
       [37, 'left'],
       [38, 'up'],
@@ -127,12 +127,12 @@ export default function Snake({ onMove, eatCtr, onGameOver }) {
     nextDir = newDir;
   }
 
-  function checkIfOnBoard() {
+  function checkIfIsOnBoard() {
     const { x, y } = snakeParts[0];
     return x < 0 || y < 0 || x > blockSize - 1 || y > blockSize - 1;
   }
 
-  function checkIfAteItself() {
+  function checkIfIsEatingItself() {
     return snakeParts.some((snakePart, i) => {
       if (i === 0) return;
       if (i === snakeParts.length - 1) return;
