@@ -1,5 +1,5 @@
-import toClassName from './toClassName';
+import joinClasses from './joinClasses';
 import getRelativeDir from './getRelativeDir';
 import getRoundnessType from './getRoundnessType';
 
-export { toClassName, getRelativeDir, getRoundnessType };
+export { joinClasses, getRelativeDir, getRoundnessType };

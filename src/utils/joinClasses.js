@@ -1,4 +1,4 @@
-export default function joinClassNames(...classNames) {
+export default function joinClasses(...classNames) {
   if (classNames[0] instanceof Array) {
     classNames = classNames[0];
   }
