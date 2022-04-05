@@ -1,10 +1,19 @@
-import { createContext, useReducer, useState } from 'react';
+import { createContext, useReducer, useState, useEffect } from 'react';
 
 const Context = createContext();
 
 function ContextProvider({ children }) {
-  const [length, setLength] = useState(30);
-  const [ranking, dispatchRanking] = useReducer(rankingReducer, []);
+  const snakeStorage = JSON.parse(localStorage.getItem('snake'));
+  const [length, setLength] = useState(snakeStorage?.length || 30);
+  const [ranking, dispatchRanking] = useReducer(
+    rankingReducer,
+    snakeStorage?.ranking || []
+  );
+
+  // Save to localStorage
+  useEffect(() => {
+    localStorage.setItem('snake', JSON.stringify({ length, ranking }));
+  }, [length, ranking]);
 
   function extend(length = 10) {
     setLength((prevLength) => prevLength + length);
