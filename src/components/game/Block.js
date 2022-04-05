@@ -1,5 +1,5 @@
 import cls from './Block.module.css';
-import toClassName from './../../utils/toClassName';
+import { joinClasses } from './../../utils/utils';
 
 export default function Block(props) {
   const { className, size = 21, x, y, style, rounded } = props;
@@ -15,7 +15,7 @@ export default function Block(props) {
     'bottom right': cls.roundedBottomRight,
   };
 
-  const classNames = toClassName(
+  const classNames = joinClasses(
     className,
     cls.block,
     roundedClassNamesMap[rounded]

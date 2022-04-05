@@ -1,11 +1,11 @@
 import cls from './Button.module.css';
-import { toClassName } from '../../utils/utils';
+import { joinClasses } from '../../utils/utils';
 
 export default function Button(props) {
   const { children, className, theme, size, wide, onClick, ...restProps } =
     props;
 
-  const classNames = toClassName(
+  const classNames = joinClasses(
     className,
     cls.btn,
     cls[theme],

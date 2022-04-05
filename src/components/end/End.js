@@ -1,5 +1,5 @@
 import { useRef, useEffect, useContext } from 'react';
-import { toClassName } from '../../utils/utils';
+import { joinClasses } from '../../utils/utils';
 import Context from '../../store/store';
 import asCard from '../hoc/asCard';
 import Input from '../ui/Input';
@@ -44,7 +44,7 @@ function End({ className, changeView }) {
   const length = `${ctx.length / 100}m`;
 
   return (
-    <div className={toClassName(className, cls.ranking)}>
+    <div className={joinClasses(className, cls.ranking)}>
       <h1>Your snake has</h1>
       <p>{length}</p>
       <form onSubmit={onSubmitHandler}>

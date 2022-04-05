@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { toClassName } from '../../utils/utils';
+import { joinClasses } from '../../utils/utils';
 import cls from './Input.module.css';
 
 export default forwardRef((props, ref) => {
@@ -8,7 +8,7 @@ export default forwardRef((props, ref) => {
   return (
     <input
       type={type}
-      className={toClassName(className, cls.input)}
+      className={joinClasses(className, cls.input)}
       ref={ref}
       {...restProps}
     />

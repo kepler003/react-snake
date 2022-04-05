@@ -1,11 +1,11 @@
-import { toClassName } from '../../utils/utils';
+import { joinClasses } from '../../utils/utils';
 import asCard from './../hoc/asCard';
 import Button from './../ui/Button';
 import cls from './Menu.module.css';
 
 function Menu({ className, changeView }) {
   return (
-    <div className={toClassName(className, cls.menu)}>
+    <div className={joinClasses(className, cls.menu)}>
       <h1>SNAKE</h1>
       <Button theme='primary' onClick={() => changeView('ranking')}>
         Leaderboard

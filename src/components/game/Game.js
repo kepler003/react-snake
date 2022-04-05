@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { toClassName } from '../../utils/utils';
+import { joinClasses } from '../../utils/utils';
 import asCard from '../hoc/asCard';
 import Snake from './Snake';
 import Food from './Food';
@@ -10,7 +10,7 @@ function Game({ className, changeView }) {
   const [food, setFood] = useState(null);
 
   return (
-    <div className={toClassName(className, cls.game)}>
+    <div className={joinClasses(className, cls.game)}>
       <Snake
         food={food}
         onMove={setSnakeParts}
