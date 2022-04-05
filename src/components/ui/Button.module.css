@@ -58,18 +58,6 @@
   border-color: var(--c-primary-4);
 }
 
-.secondary {
-  background-color: var(--c-secondary);
-  border-color: var(--c-secondary);
-  color: white;
-}
-
-.secondary:hover,
-.secondary:focus {
-  background-color: var(--c-secondary-4);
-  border-color: var(--c-secondary-4);
-}
-
 .gray {
   background-color: var(--c-gray-4);
   border-color: var(--c-gray-4);
