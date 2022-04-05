@@ -9,21 +9,21 @@ import Gameover from './components/gameover/Gameover';
 import Leaderboard from './components/leaderboard/Leaderboard';
 
 function App() {
-  const [view, setView] = useState('leaderboard');
+  const [view, setView] = useState('menu');
 
   const viewsMap = {
     menu: <Menu changeView={changeView} />,
-    board: <Gameboard changeView={changeView} />,
-    over: <Gameover changeView={changeView} />,
-    leaderboard: <Leaderboard changeView={changeView} />,
+    game: <Gameboard changeView={changeView} />,
+    end: <Gameover changeView={changeView} />,
+    ranking: <Leaderboard changeView={changeView} />,
   };
 
   function changeView(view) {
     if (!Object.keys(viewsMap).includes(view)) {
-      setView('menu');
-    } else {
-      setView(view);
+      throw new Error(`No view named ${view}`);
     }
+
+    setView(view);
   }
 
   return (
