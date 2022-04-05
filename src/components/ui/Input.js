@@ -3,27 +3,13 @@ import toClassName from '../../utils/utils';
 import cls from './Input.module.css';
 
 export default forwardRef((props, ref) => {
-  const {
-    type = 'text',
-    className,
-    selectOnFocus = false,
-    ...restProps
-  } = props;
-
-  const inputRef = ref || useRef();
-
-  function onFocusHandler() {
-    if (selectOnFocus) {
-      inputRef.current.select();
-    }
-  }
+  const { type = 'text', className, ...restProps } = props;
 
   return (
     <input
       type={type}
       className={toClassName(className, cls.input)}
-      ref={inputRef}
-      onFocus={onFocusHandler}
+      ref={ref}
       {...restProps}
     />
   );
