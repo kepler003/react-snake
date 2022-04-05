@@ -7,10 +7,10 @@ function Menu({ className, changeView }) {
   return (
     <div className={toClassName(className, cls.menu)}>
       <h1>SNAKE</h1>
-      <Button theme='secondary' onClick={() => changeView('ranking')}>
+      <Button theme='primary' onClick={() => changeView('ranking')}>
         Leaderboard
       </Button>
-      <Button theme='secondary' onClick={() => changeView('game')}>
+      <Button theme='primary' onClick={() => changeView('game')}>
         Play
       </Button>
     </div>

@@ -8,7 +8,7 @@
 .menu h1 {
   margin-bottom: var(--s-3);
   padding: var(--s-5);
-  color: var(--c-secondary-7);
+  color: var(--c-primary-7);
   font-size: var(--s-7);
   font-weight: bold;
   transform: scaleX(150%);
