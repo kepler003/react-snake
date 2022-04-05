@@ -60,6 +60,8 @@ export default function Snake({ onMove, onGameOver, food }) {
 
   // Eating food
   useEffect(() => {
+    if (!food) return;
+    
     const head = snakeParts[0];
 
     if (head.x === food.x && head.y === food.y) {
