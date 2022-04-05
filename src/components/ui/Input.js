@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import toClassName from '../../utils/utils';
+import { forwardRef } from 'react';
+import { toClassName } from '../../utils/utils';
 import cls from './Input.module.css';
 
 export default forwardRef((props, ref) => {
