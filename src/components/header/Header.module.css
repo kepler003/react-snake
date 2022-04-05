@@ -16,7 +16,7 @@
 }
 
 .best {
-  background-color: var(--c-secondary-2);
+  background-color: var(--c-primary-2);
 }
 
 .your {
@@ -29,7 +29,7 @@
 }
 
 .value {
-  color: var(--c-secondary-7);
+  color: var(--c-primary-7);
   font-size: var(--s-5);
   font-weight: 700;
 }
