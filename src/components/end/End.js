@@ -53,14 +53,14 @@ function End({ className, changeView }) {
           placeholder={`What's your name?`}
           ref={inputRef}
         />
-        <Button className={cls.saveBtn} type='submit' theme='secondary' wide>
+        <Button className={cls.saveBtn} type='submit' theme='primary' wide>
           Save
         </Button>
       </form>
-      <Button onClick={onMenuClickHandler} theme='secondary' wide>
+      <Button onClick={onMenuClickHandler} theme='primary' wide>
         Menu
       </Button>
-      <Button onClick={onTryAgainClickHandler} theme='secondary' wide>
+      <Button onClick={onTryAgainClickHandler} theme='primary' wide>
         Try again
       </Button>
     </div>
