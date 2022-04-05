@@ -8,27 +8,21 @@ import cls from './Game.module.css';
 function Game({ className, changeView }) {
   const [snakeParts, setSnakeParts] = useState(null);
   const [food, setFood] = useState(null);
-  const [eatCtr, setEatCtr] = useState(0);
 
   // Placing the food
   useEffect(() => {
     if (food || !snakeParts) return;
-    placeFood();
-  }, [snakeParts]);
+    addFood();
+  }, [food, snakeParts]);
 
   // Eating food
   useEffect(() => {
     if (!food || !snakeParts) return;
-    if (!checkIfAteFood()) return;
-    setEatCtr((prevCtr) => prevCtr + 1);
-    placeFood();
+    if (!checkIfIsEating()) return;
+    removeFood();
   }, [snakeParts]);
 
-  function handleOnMove(snakeParts) {
-    setSnakeParts(snakeParts);
-  }
-
-  function placeFood() {
+  function addFood() {
     let coords = null;
 
     do {
@@ -47,9 +41,17 @@ function Game({ className, changeView }) {
     setFood(coords);
   }
 
-  function checkIfAteFood() {
+  function removeFood() {
+    setFood(null);
+  }
+
+  function checkIfIsEating() {
     const head = snakeParts[0];
     return head.x === food.x && head.y === food.y;
+  }
+
+  function onMoveHandler(snakeParts) {
+    setSnakeParts(snakeParts);
   }
 
   function onGameOverHandler() {
@@ -57,13 +59,9 @@ function Game({ className, changeView }) {
   }
 
   return (
-    <div className={toClassName(className, cls.gameboard)}>
-      <Snake
-        eatCtr={eatCtr}
-        onMove={handleOnMove}
-        onGameOver={onGameOverHandler}
-      />
-      {food && <Food {...food} />}
+    <div className={toClassName(className, cls.game)}>
+      <Snake onMove={onMoveHandler} onGameOver={onGameOverHandler} />
+      <Food {...food} />
     </div>
   );
 }
