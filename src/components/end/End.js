@@ -16,7 +16,8 @@ function End({ className, changeView }) {
     }
   }, [inputRef.current]);
 
-  function save() {
+  function onSubmitHandler(e) {
+    e.preventDefault();
     const name = inputRef.current.value;
 
     if (name.trim() === '') return;
@@ -40,10 +41,12 @@ function End({ className, changeView }) {
     <div className={toClassName(className, cls.gameover)}>
       <h1>Your snake is #12</h1>
       <p>{ctx.length / 100}m</p>
-      <Input placeholder='Your name' ref={inputRef} />
-      <Button className={cls.saveBtn} theme='secondary' wide onClick={save}>
-        Save
-      </Button>
+      <form onSubmit={onSubmitHandler}>
+        <Input placeholder='Your name' ref={inputRef} />
+        <Button className={cls.saveBtn} type='submit' theme='secondary' wide>
+          Save
+        </Button>
+      </form>
       <Button theme='secondary' wide onClick={onMenuClickHandler}>
         Menu
       </Button>

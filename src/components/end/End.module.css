@@ -16,6 +16,11 @@
   font-weight: bold;
 }
 
+.gameover form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 .gameover input {
   max-width: var(--s-11);
   margin-top: var(--s-6);
