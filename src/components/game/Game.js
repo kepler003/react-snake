@@ -60,7 +60,7 @@ function Game({ className, changeView }) {
 
   return (
     <div className={toClassName(className, cls.game)}>
-      <Snake onMove={onMoveHandler} onGameOver={onGameOverHandler} />
+      <Snake onMove={onMoveHandler} onGameOver={onGameOverHandler} food={food} />
       <Food {...food} />
     </div>
   );
