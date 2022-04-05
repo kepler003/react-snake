@@ -6,7 +6,7 @@ import Game from './components/game/Game';
 import Header from './components/header/Header';
 import Menu from './components/menu/Menu';
 import End from './components/end/End';
-import Leaderboard from './components/leaderboard/Leaderboard';
+import Ranking from './components/ranking/Ranking';
 
 function App() {
   const [view, setView] = useState('menu');
@@ -15,7 +15,7 @@ function App() {
     menu: <Menu changeView={changeView} />,
     game: <Game changeView={changeView} />,
     end: <End changeView={changeView} />,
-    ranking: <Leaderboard changeView={changeView} />,
+    ranking: <Ranking changeView={changeView} />,
   };
 
   function changeView(view) {

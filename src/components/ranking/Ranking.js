@@ -3,9 +3,9 @@ import Context from '../../store/store';
 import { toClassName } from '../../utils/utils';
 import asCard from '../hoc/asCard';
 import Button from '../ui/Button';
-import cls from './Leaderboard.module.css';
+import cls from './Ranking.module.css';
 
-function Leaderboard({ className, changeView }) {
+function Ranking({ className, changeView }) {
   const players = useContext(Context).leaderboard.list;
   
   function onClick() {
@@ -36,4 +36,4 @@ function Leaderboard({ className, changeView }) {
   );
 }
 
-export default asCard(Leaderboard);
+export default asCard(Ranking);
