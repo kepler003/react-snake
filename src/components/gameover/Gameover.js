@@ -21,24 +21,25 @@ function Gameover({ className, changeView }) {
 
     if (name.trim() === '') return;
 
-    ctx.leaderboard.addPlayer(name);
+    ctx.saveScore(name);
+    ctx.reset();
     changeView('leaderboard');
   }
 
   function onMenuClickHandler() {
+    ctx.reset();
     changeView('menu');
-    ctx.snake.reset();
   }
 
   function onTryAgainClickHandler() {
+    ctx.reset();
     changeView('board');
-    ctx.snake.reset();
   }
 
   return (
     <div className={toClassName(className, cls.gameover)}>
       <h1>Your snake is #12</h1>
-      <p>{ctx.snake.length / 100}m</p>
+      <p>{ctx.length / 100}m</p>
       <Input placeholder='Your name' ref={inputRef} />
       <Button className={cls.saveBtn} theme='secondary' wide onClick={save}>
         Save

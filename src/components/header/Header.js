@@ -14,7 +14,7 @@ export default function Header() {
       </div>
       <div className={toClassName(cls.block, cls.your)}>
         <span className={cls.label}>length</span>
-        <span className={cls.value}>{ctx.snake.length / 100}m</span>
+        <span className={cls.value}>{ctx.length / 100}m</span>
       </div>
     </header>
   );

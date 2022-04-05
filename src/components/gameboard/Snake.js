@@ -68,7 +68,7 @@ export default function Snake({ onMove, eatCtr, onGameOver }) {
       return [...prevParts, { x: -1, y: -1, hidden: true }];
     });
 
-    ctx.snake.eat();
+    ctx.extend();
   }, [eatCtr]);
 
   function move() {
