@@ -3,66 +3,56 @@ import { createContext, useReducer, useState } from 'react';
 const Context = createContext();
 
 function ContextProvider({ children }) {
-  const [snake, setSnake] = useState({ length: 30 });
-  const [leaderboard, dispatchLeaderboard] = useReducer(leaderboardReducer, []);
+  const [length, setLength] = useState(30);
+  const [ranking, setRanking] = useReducer(rankingReducer, []);
 
-  function eat() {
-    setSnake((prevSnake) => ({
-      ...prevSnake,
-      length: prevSnake.length + 10,
-    }));
+  function extend(length = 1) {
+    setLength((prevLength) => prevLength + length);
   }
 
   function reset() {
-    setSnake({ length: 30 });
+    setLength(30);
   }
 
-  function addPlayer(name) {
-    dispatchLeaderboard({
-      type: 'add',
+  function saveScore(name, score) {
+    dispatchEvent({
+      type: 'save',
       name,
-      score: snake.length,
+      score,
     });
-    reset();
   }
 
   const store = {
-    snake: {
-      ...snake,
-      eat,
-      reset,
-    },
-    leaderboard: {
-      list: leaderboard,
-      addPlayer,
-    },
+    length,
+    ranking,
+    extend,
+    reset,
+    saveScore,
   };
 
   return <Context.Provider value={store}>{children}</Context.Provider>;
 }
 
-function leaderboardReducer(leaderboard, action) {
+function rankingReducer(ranking, action) {
   switch (action.type) {
-    case 'add': {
-      const newLeaderboard = [...leaderboard];
+    case 'save': {
+      const newRanking = [...ranking];
+
       const newPlayer = {
         name: action.name,
         score: action.score,
         id: Math.random().toString(),
       };
 
-      if (newLeaderboard.length === 0) {
-        return [...newLeaderboard, newPlayer];
-      } else {
-        for (let i = 0; i < newLeaderboard.length; i++) {
-          const player = newLeaderboard[i];
+      if (newRanking.length !== 0) {
+        for (const [i, player] of newRanking.entries()) {
           if (player.score >= action.score) continue;
-          newLeaderboard.splice(i, 0, newPlayer);
-          return newLeaderboard;
+          newRanking.splice(i, 0, newPlayer);
+          return newRanking;
         }
-
-        return [...newLeaderboard, newPlayer];
       }
+
+      return [...newRanking, newPlayer];
     }
   }
 }
