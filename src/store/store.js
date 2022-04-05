@@ -4,7 +4,7 @@ const Context = createContext();
 
 function ContextProvider({ children }) {
   const [length, setLength] = useState(30);
-  const [ranking, setRanking] = useReducer(rankingReducer, []);
+  const [ranking, dispatchRanking] = useReducer(rankingReducer, []);
 
   function extend(length = 10) {
     setLength((prevLength) => prevLength + length);
@@ -15,7 +15,7 @@ function ContextProvider({ children }) {
   }
 
   function saveScore(name, score = length) {
-    dispatchEvent({
+    dispatchRanking({
       type: 'save',
       name,
       score,
