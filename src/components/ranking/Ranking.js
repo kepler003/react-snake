@@ -6,8 +6,8 @@ import Button from '../ui/Button';
 import cls from './Ranking.module.css';
 
 function Ranking({ className, changeView }) {
-  const players = useContext(Context).leaderboard.list;
-  
+  const ctx = useContext(Context);
+
   function onClick() {
     changeView('menu');
   }
@@ -15,10 +15,12 @@ function Ranking({ className, changeView }) {
   return (
     <div className={toClassName(className, cls.board)}>
       <h1>Leaderboard</h1>
-      {players.length === 0 && <p className={cls.noPlayers}>No players... yet!</p>}
-      {players.length !== 0 && (
+      {ctx.ranking.length === 0 && (
+        <p className={cls.noPlayers}>No players... yet!</p>
+      )}
+      {ctx.ranking.length !== 0 && (
         <ul>
-          {players.map(({ name, score, id }, i) => {
+          {ctx.ranking.map(({ name, score, id }, i) => {
             return (
               <li key={id} dataid={id}>
                 <span>#{i + 1}</span>
