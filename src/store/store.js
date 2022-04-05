@@ -6,7 +6,7 @@ function ContextProvider({ children }) {
   const [length, setLength] = useState(30);
   const [ranking, setRanking] = useReducer(rankingReducer, []);
 
-  function extend(length = 1) {
+  function extend(length = 10) {
     setLength((prevLength) => prevLength + length);
   }
 
