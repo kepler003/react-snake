@@ -14,7 +14,7 @@ function ContextProvider({ children }) {
     setLength(30);
   }
 
-  function saveScore(name, score) {
+  function saveScore(name, score = length) {
     dispatchEvent({
       type: 'save',
       name,
