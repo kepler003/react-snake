@@ -39,11 +39,11 @@ function End({ className, changeView }) {
 
   return (
     <div className={toClassName(className, cls.ranking)}>
-      <h1>Your snake is #12</h1>
+      <h1>Your snake has</h1>
       <p>{ctx.length / 100}m</p>
       <form onSubmit={onSubmitHandler}>
         <Input placeholder='Your name' ref={inputRef} />
-        <Button className={cls.saveBtn} type='submit' theme='primary' wide>
+        <Button className={cls.saveBtn} type='submit' theme='secondary' wide>
           Save
         </Button>
       </form>
