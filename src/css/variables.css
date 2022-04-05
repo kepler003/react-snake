@@ -1,23 +1,14 @@
 :root {
   /* Colors */
-  --c-primary-1: hsl(180, 50%, 91.37%);
-  --c-primary-2: hsl(180, 46.94%, 80.78%);
-  --c-primary-3: hsl(180, 42.48%, 70%);
-  --c-primary-4: hsl(180, 38.46%, 59.22%);
-  --c-primary-5: hsl(180, 34.68%, 48.63%);
-  --c-primary-6: hsl(180, 30.93%, 38.04%);
-  --c-primary-7: hsl(180, 28.06%, 27.25%);
-  --c-primary-8: hsl(180, 23.81%, 16.47%);
-  --c-primary-9: hsl(180, 20%, 5.88%);
-  --c-secondary-1: hsl(46.67, 100%, 96.47%);
-  --c-secondary-2: hsl(44.78, 89.33%, 85.29%);
-  --c-secondary-3: hsl(42.77, 75.94%, 73.92%);
-  --c-secondary-4: hsl(40, 65.08%, 62.94%);
-  --c-secondary-5: hsl(38.47, 53.04%, 51.57%);
-  --c-secondary-6: hsl(36.43, 40.78%, 40.39%);
-  --c-secondary-7: hsl(34.09, 29.73%, 29.02%);
-  --c-secondary-8: hsl(30, 17.39%, 18.04%);
-  --c-secondary-9: hsl(30, 5.88%, 6.67%);
+  --c-primary-1: hsl(46.67, 100%, 96.47%);
+  --c-primary-2: hsl(44.78, 89.33%, 85.29%);
+  --c-primary-3: hsl(42.77, 75.94%, 73.92%);
+  --c-primary-4: hsl(40, 65.08%, 62.94%);
+  --c-primary-5: hsl(38.47, 53.04%, 51.57%);
+  --c-primary-6: hsl(36.43, 40.78%, 40.39%);
+  --c-primary-7: hsl(34.09, 29.73%, 29.02%);
+  --c-primary-8: hsl(30, 17.39%, 18.04%);
+  --c-primary-9: hsl(30, 5.88%, 6.67%);
   --c-gray-1: hsl(0, 0%, 92.55%);
   --c-gray-2: hsl(0, 0%, 81.57%);
   --c-gray-3: hsl(0, 0%, 70.59%);
@@ -65,27 +56,12 @@
   --c-info-9: hsl(197.14, 30.43%, 4.51%);
 
   /* Helper colors */
-  --c-primary: var(--c-primary-5);
-  --c-primary-l: var(--c-primary-3);
-  --c-primary-d: var(--c-primary-7);
-  --c-secondary: var(--c-secondary-5);
-  --c-secondary-l: var(--c-secondary-3);
-  --c-secondary-d: var(--c-secondary-7);
+  --c-primary: var(--c-secondary-5);
   --c-gray: var(--c-gray-4);
-  --c-gray-l: var(--c-gray-3);
-  --c-gray-d: var(--c-gray-5);
   --c-danger: var(--c-danger-5);
-  --c-danger-l: var(--c-danger-3);
-  --c-danger-d: var(--c-danger-7);
   --c-success: var(--c-success-5);
-  --c-success-l: var(--c-success-3);
-  --c-success-d: var(--c-success-7);
   --c-warning: var(--c-warning-5);
-  --c-warning-l: var(--c-warning-3);
-  --c-warning-d: var(--c-warning-7);
   --c-info: var(--c-info-5);
-  --c-info-l: var(--c-info-3);
-  --c-info-d: var(--c-info-7);
 
   /* Sizes */
   --s-1: 0.4rem;
