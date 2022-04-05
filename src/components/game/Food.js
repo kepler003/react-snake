@@ -50,5 +50,7 @@ export default function Food({ snakeParts, onSpawn }) {
     return head?.x === pos?.x && head?.y === pos?.y;
   }
 
-  return <Block className={cls.food} rounded='all' x={pos?.x} y={pos?.y} />;
+  return (
+    pos && <Block className={cls.food} rounded='all' x={pos?.x} y={pos?.y} />
+  );
 }
