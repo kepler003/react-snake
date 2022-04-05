@@ -8,7 +8,7 @@ function Menu({ className, changeView }) {
     <div className={joinClasses(className, cls.menu)}>
       <h1>SNAKE</h1>
       <Button theme='primary' onClick={() => changeView('ranking')}>
-        Leaderboard
+        Ranking
       </Button>
       <Button theme='primary' onClick={() => changeView('game')}>
         Play

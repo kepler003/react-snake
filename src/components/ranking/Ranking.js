@@ -10,7 +10,7 @@ function Ranking({ className, changeView }) {
 
   return (
     <div className={joinClasses(className, cls.board)}>
-      <h1>Leaderboard</h1>
+      <h1>Ranking</h1>
       {ctx.ranking.length === 0 && (
         <p className={cls.noPlayers}>No players... yet!</p>
       )}
